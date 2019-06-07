@@ -546,7 +546,7 @@
                             _vm.removeItem(v);
                         }
                     }) ], 2);
-                }), 1);
+                }));
             },
             staticRenderFns: []
         };
