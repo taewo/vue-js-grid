@@ -96,7 +96,12 @@ export default {
     },
 
     rowCount () {
-      return Math.floor(this.windowWidth / this.cellWidth)
+      var rowCount = Math.floor(this.windowWidth / this.cellWidth);
+      if (rowCount >= 4) {
+        return 4
+      } else {
+        return rowCount
+      }
     },
 
     rowShift () {

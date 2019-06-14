@@ -251,7 +251,8 @@
                     };
                 },
                 rowCount: function() {
-                    return Math.floor(this.windowWidth / this.cellWidth);
+                    var rowCount = Math.floor(this.windowWidth / this.cellWidth);
+                    return rowCount >= 4 ? 4 : rowCount;
                 },
                 rowShift: function() {
                     if (this.center) {
@@ -536,7 +537,7 @@
                             _vm.removeItem(v);
                         }
                     }) ], 2);
-                }));
+                }), 1);
             },
             staticRenderFns: []
         };
@@ -551,7 +552,7 @@
                     on: {
                         mousedown: _vm.mousedown,
                         touchstart: function($event) {
-                            $event.stopPropagation(), _vm.mousedown($event);
+                            return $event.stopPropagation(), _vm.mousedown($event);
                         }
                     }
                 }, [ _vm._t("default") ], 2);
